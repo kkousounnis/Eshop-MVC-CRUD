@@ -19,7 +19,7 @@ import models.Customer;
  *
  * @author George.Pasparakis
  */
-@WebServlet(name = "login", urlPatterns = {"/", "/login", "/Login"})
+@WebServlet(name = "login", urlPatterns = {"/login", "/Login"})
 public class Login extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,17 +27,14 @@ public class Login extends HttpServlet {
         String cssTag="<link rel='stylesheet' type='text/css' href='static/css/styles.css'>";
         response.setContentType("text/html;charset=UTF-8"); // servlet
         try (PrintWriter out = response.getWriter()) {
-            
             /* for the browser */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"static/css/styles.css\">");
             out.println("<title>Precious EShop</title>");
             out.println(cssTag);
             out.println("</head>");
             out.println("<body>");
-            
             out.println("<h1>Login - Precious EShop" + "</h1>");
             out.println(" <div>My Precious... EShop</div>\n" +
                         "        <form action=\"/PreciousEShop/login\" method=\"POST\">\n" +
@@ -62,6 +59,7 @@ public class Login extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Administration Panel - Precious EShop</title>");
+            out.println("<link rel=\"stylesheet\" href=\"styles.css\" type=\"text/css\">");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Administration Panel - Precious EShop" + "</h1>");
