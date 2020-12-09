@@ -13,7 +13,7 @@ import models.Customer;
  */
 public class CustomerDao extends Database implements ICustomerDao {
 
-    public Database db;
+    private Database db;
 
     @Override
     public int insert(Customer customer, String tableName) {

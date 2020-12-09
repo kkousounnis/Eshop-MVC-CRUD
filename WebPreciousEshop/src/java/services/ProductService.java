@@ -18,24 +18,20 @@ public class ProductService implements IProductService{
     @Override
     public int insert(Product product) {
         if(productDao == null) productDao = new ProductDao();
-        return productDao.insert(product, "products");
+        int result = productDao.insert(product, "products");
+        return (result);
     }
-
+    
     @Override
-    public int update(int productId) {
+    public int update(int productId, Product product) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int update(String name) {
+    public int update(String name, double price, Product product) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public int update(double price) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     @Override
     public int delete(int quantity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

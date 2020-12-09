@@ -1,7 +1,9 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,23 +17,21 @@ public class Product extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(productService == null) productService = new ProductService();
-        int  result = productService.insert(new models.Product("HDD", 120, 2));
-        resp.setContentType("text/html;charset=UTF-8"); // servlet
-        try (PrintWriter out = resp.getWriter()) {
-            /* for the browser */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Precious EShop</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<p>Inserted Records for Product: " + result);
-            out.println("</body>");
-            out.println("</html>");
-
-        }
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/views/newproduct.jsp");
+        rd.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(productService == null) productService = new ProductService();
+        models.Product product = new models.Product();
+        product.setName(req.getParameter("name"));
+        product.setPrice(parseDouble(req.getParameter("price")));
+        product.setQuantity(parseInt(req.getParameter("quantity")));
+        int  result = productService.insert(product);
+    }
+    
+    
     
     
 }

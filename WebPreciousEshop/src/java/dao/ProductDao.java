@@ -16,7 +16,7 @@ import models.Product;
  * @author konstantinos
  */
 public class ProductDao extends Database implements IProductDao {
-    public Database db;
+    private Database db;
     @Override
     public int insert(Product product, String tableName) {
         //INSERT INTO `customers`(`name`,`price`,`quantity`) VALUES ('Fix it kit','187','1');
