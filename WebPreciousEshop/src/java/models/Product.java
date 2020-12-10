@@ -5,11 +5,13 @@
  */
 package models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author George.Pasparakis
  */
-public class Product {
+public class Product implements java.io.Serializable{
     private String name;
     private double price;
     private int quantity;
