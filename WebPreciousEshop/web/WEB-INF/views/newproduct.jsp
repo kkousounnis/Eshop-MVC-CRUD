@@ -30,7 +30,7 @@
                             Quantity:   <input class="form-control" autocomplete="off" type="text" name="quantity" value="" size="6" maxlength="8" /><br />
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Save Product" name="saveproduct" />
+                            <input class="btn btn-primary" type="submit" value="Save Product" name="saveproduct" />
                         </div>
                     </form>
                 </div>
