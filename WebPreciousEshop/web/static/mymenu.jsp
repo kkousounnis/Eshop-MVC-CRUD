@@ -32,10 +32,10 @@
                                 <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Products
                                     <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="product">New</a></li>
+                                    <li><a class="dropdown-item" href="product?action=insertproduct">New</a></li>
                                     <li><a class="dropdown-item" href="#">Update</a></li>
                                     <li><a class="dropdown-item" href="#">Delete</a></li>
-                                    <li><a class="dropdown-item" href="#">View all</a></li>                            
+                                    <li><a class="dropdown-item" href="product?action=productlist">View all</a></li>                            
                                 </ul>
                             </div>
                         </div>

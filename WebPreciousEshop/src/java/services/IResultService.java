@@ -5,6 +5,7 @@
  */
 package services;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Customer;
@@ -17,5 +18,9 @@ import models.Product;
 public interface IResultService {
     void showInsertResult (HttpServletRequest req, HttpServletResponse resp, int errorCode, Product product);
     void showInsertResult(HttpServletRequest req, HttpServletResponse resp, int errorCode, Customer customer);
+    void showAllResultP(HttpServletRequest req, HttpServletResponse resp, List<Product> products);
+    void showAllResultC(HttpServletRequest req, HttpServletResponse resp, List<Customer> customers);
+    
+    
     
 }

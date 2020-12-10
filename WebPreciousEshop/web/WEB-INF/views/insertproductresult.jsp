@@ -24,13 +24,12 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Result of Insert Product - <%=request.getContextPath()%></title>
-        <!--        <link rel='stylesheet' type='text/css' href='static/css/styles.css'>-->
-        <!--<link rel='stylesheet' type='text/css' href='static/css/styles.css'>-->
         <link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
     </head>
     <body>
-        <%@ include file="../../static/mymenu.jsp" %>
+        
         <div class="container">
+            <%@ include file="../../static/mymenu.jsp" %>
             <jsp:useBean id="product" class="models.Product" scope="session"/>
              <%=product.getName()%>
             <div class="row">
