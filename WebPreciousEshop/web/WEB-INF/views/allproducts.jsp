@@ -12,12 +12,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
+        <link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
     </head>
     <body>
         <div class="container">
             <%@ include file="../../static/mymenu.jsp" %>
-            <table border=1>
+            <table border=1 class="table table-striped">
             <thead>
                 <tr>
                     <th>ProductId</th>
@@ -29,14 +29,13 @@
             <tbody>
                 <c:forEach items="${requestScope.Products}" var="Product">
                     <tr>
-                        <td><c:out value="${Product.productid}" /></td>
+                        <td><c:out value="${Product.id}" /></td>
                         <td><c:out value="${Product.name}" /></td>
                         <td><c:out value="${Product.price}" /></td>
                         <td><c:out value="${Product.quantity}" /></td>
                     </c:forEach>
             </tbody> 
         </table>
-            
         </div>
     </body>
     <script src="js/jquery.js"></script>

@@ -143,15 +143,16 @@ public class CustomerDao extends Database implements ICustomerDao {
         List<Customer> customers = new ArrayList<>();
         Customer customer = null;
         final String query = "SELECT * FROM `customers`";
-        int customerId = -1;
+        
         try {
             if (con != null) {
                 statement = con.createStatement();
 
                 rs = statement.executeQuery(query);
                 while (rs.next()) {
-                    customerId = rs.getInt("id");
+                    
                     customer = new Customer(
+                            rs.getInt("id"),
                             rs.getString("first_name"),
                             rs.getString("last_name"),
                             rs.getString("tel"),
@@ -188,6 +189,7 @@ public class CustomerDao extends Database implements ICustomerDao {
                 while (rs.next()) {
 
                     customer = new Customer(
+                            rs.getInt("id"),
                             rs.getString("first_name"),
                             rs.getString("last_name"),
                             rs.getString("tel"),

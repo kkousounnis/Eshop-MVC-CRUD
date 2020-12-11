@@ -29,8 +29,8 @@ public class Customer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(customerService == null) customerService = new CustomerService();
-        int  result = customerService.insert(new models.Customer("Bruce1", "Lee", "2222", "bruce@kick.com"));
-        int  deleteresult =  customerService.delete(51);
+        //int  result = customerService.insert(new models.Customer("Bruce1", "Lee", "2222", "bruce@kick.com"));
+        //int  deleteresult =  customerService.delete(51);
         List<models.Customer> customer= customerService.all();
         resp.setContentType("text/html;charset=UTF-8"); // servlet
         try (PrintWriter out = resp.getWriter()) {
@@ -41,8 +41,8 @@ public class Customer extends HttpServlet {
             out.println("<title>Precious EShop</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<p>Inserted Records for Customer: " + result);
-            out.println("<p>Delete Record of Customer with id 51: " + result);
+            //out.println("<p>Inserted Records for Customer: " + result);
+            //out.println("<p>Delete Record of Customer with id 51: " + result);
             out.println("<p>Customer List: " + customer);
             out.println("</body>");
             out.println("</html>");

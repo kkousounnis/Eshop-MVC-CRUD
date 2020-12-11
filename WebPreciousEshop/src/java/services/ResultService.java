@@ -54,7 +54,7 @@ public class ResultService implements IResultService {
         try {
             ProductDao d = new ProductDao();
             req.setAttribute("Products", d.all());
-            req.getRequestDispatcher("WEB-INF/views/customers.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/views/allproducts.jsp").forward(req, resp);
             
             
             

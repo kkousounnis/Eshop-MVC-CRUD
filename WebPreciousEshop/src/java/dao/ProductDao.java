@@ -78,6 +78,7 @@ public class ProductDao extends Database implements IProductDao {
                 rs = statement.executeQuery(query);
                 while (rs.next()) {
                     product = new Product(
+                            rs.getInt("id"),
                             rs.getString("name"),
                             rs.getDouble("price"),
                             rs.getInt("quantity"));

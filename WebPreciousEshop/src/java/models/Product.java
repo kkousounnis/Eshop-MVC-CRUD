@@ -11,17 +11,29 @@ import java.io.Serializable;
  *
  * @author George.Pasparakis
  */
-public class Product implements java.io.Serializable{
+public class Product implements java.io.Serializable {
+
+    private int id;
     private String name;
     private double price;
     private int quantity;
 
-    public Product() {}
-    
-    public Product(String name, double price, int quantity) {
+    public Product() {
+    }
+
+    public Product(int id, String name, double price, int quantity) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -51,12 +63,12 @@ public class Product implements java.io.Serializable{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Product{name=").append(name);
+        sb.append("Product{id=").append(id);
+        sb.append(", name=").append(name);
         sb.append(", price=").append(price);
         sb.append(", quantity=").append(quantity);
         sb.append('}');
         return sb.toString();
     }
-    
-    
+
 }
