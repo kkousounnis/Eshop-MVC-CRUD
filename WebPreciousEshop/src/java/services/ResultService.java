@@ -46,7 +46,23 @@ public class ResultService implements IResultService {
 
     @Override
     public void showInsertResult(HttpServletRequest req, HttpServletResponse resp, int errorCode, Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       try {
+            RequestDispatcher rd;
+            
+            rd = req.getRequestDispatcher("WEB-INF/views/insertcustomerresult.jsp");
+            req.setAttribute("isError",(errorCode==0)); 
+            req.setAttribute("errorCode", errorCode);
+            
+            req.setAttribute("errorMessage", (errorCode==0) ? "Customer was not successfully inserted!" : "Customer was succesfully inserted!");
+            req.setAttribute("customer", customer);
+            rd.forward(req, resp);
+            
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } catch (ServletException ex) {
+            Logger.getLogger(ResultService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResultService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

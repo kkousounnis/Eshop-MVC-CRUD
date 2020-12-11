@@ -40,9 +40,28 @@ public class Customer extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/views/newcustomer.jsp");
             rd.forward(req, resp);
         }
-        if (action.equals("customerlist")) {            
+        if (action.equals("customerlist")) {
             resultService.showAllResultC(req, resp, customerService.all());
         }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (customerService == null) {
+            customerService = new CustomerService();
+        }
+        if (resultService == null) {
+            resultService = new ResultService();
+        }
+
+        models.Customer customer = new models.Customer();
+        customer.setFirstName(req.getParameter("firstname"));
+        customer.setLastName(req.getParameter("lastname"));
+        customer.setTel(req.getParameter("telephonenumber"));
+        customer.setEmail(req.getParameter("email"));
+        int result = customerService.insert(customer);
+        resultService.showInsertResult(req, resp, result, customer);
 
     }
 
