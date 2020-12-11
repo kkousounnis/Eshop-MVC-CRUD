@@ -51,9 +51,8 @@ public class ResultService implements IResultService {
 
     @Override
     public void showAllResultP(HttpServletRequest req, HttpServletResponse resp, List<Product> products) {
-        try {
-            ProductDao d = new ProductDao();
-            req.setAttribute("Products", d.all());
+        try {            
+            req.setAttribute("Products", products);
             req.getRequestDispatcher("WEB-INF/views/allproducts.jsp").forward(req, resp);
             
             
@@ -67,7 +66,18 @@ public class ResultService implements IResultService {
 
     @Override
     public void showAllResultC(HttpServletRequest req, HttpServletResponse resp, List<Customer> customers) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            
+            req.setAttribute("Customers", customers);
+            req.getRequestDispatcher("WEB-INF/views/allcustomers.jsp").forward(req, resp);
+            
+            
+            
+        } catch (ServletException ex) {
+            Logger.getLogger(ResultService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ResultService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
